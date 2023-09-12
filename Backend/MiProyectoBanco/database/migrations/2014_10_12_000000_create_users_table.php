@@ -16,8 +16,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('last_name');
+            $table->string('document_type');
+            $table->string('document_number')->unique();
+            $table->string('address');
+            $table->string('phone_number')->nullable();
+            $table->string('email')->unique(); //Indica que no se puede repetir el correo electrónico
+            $table->timestamp('email_verified_at')->nullable();//nullable indica que puede ser nulo
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
